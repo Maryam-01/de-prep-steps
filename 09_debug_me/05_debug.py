@@ -11,7 +11,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 def return_last_digit(number):
     digit_string = str(number)
-    return digit_string[-1]
+    return abs(number) % 10
 
 
 @run_test

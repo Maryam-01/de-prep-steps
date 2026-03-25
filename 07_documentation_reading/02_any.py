@@ -15,7 +15,10 @@ def is_suspicious(crew_mates):
     Pay attention to the behaviour of any with its arguments - comprehensions may be useful here.
     """
 
-    pass
+    return any(crew_mate == "imposter" for crew_mate in crew_mates)
+   
+
+
 
 
 @run_test

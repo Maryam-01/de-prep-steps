@@ -22,7 +22,15 @@ valid_triangles([[5, 4, 5]]) returns 1
 
 
 def valid_triangles(triangles):
-    pass
+    num_of_triangles = 0
+    for triangle in triangles:
+       if triangle[0] + triangle[1] > triangle [2] and triangle[0] + triangle[2] > triangle[1] and triangle[1] + triangle[2] > triangle[0]:
+           num_of_triangles += 1
+
+    return num_of_triangles
+    
+           
+           
 
 
 @run_test
@@ -30,21 +38,21 @@ def test_valid_triangles_returns_0_when_passed_no_triangles():
     assert valid_triangles([]) == 0, format_err_msg(0, valid_triangles([]))
 
 
-@skip_test
+@run_test
 def test_valid_triangles_returns_0_when_passed_a_list_with_no_valid_triangles():
     assert valid_triangles([[5, 10, 25]]) == 0, format_err_msg(
         0, valid_triangles([[5, 10, 25]])
     )
 
 
-@skip_test
+@run_test
 def test_valid_triangles_returns_1_when_passed_a_list_with_a_single_valid_triangle():
     assert valid_triangles([[5, 4, 5]]) == 1, format_err_msg(
         1, valid_triangles([[5, 4, 5]])
     )
 
 
-@skip_test
+@run_test
 def test_valid_triangles_returns_2_when_passed_a_list_with_2_valid_and_1_invalid_triangle():
     assert (
         valid_triangles([[5, 10, 25], [5, 4, 5], [542, 586, 419]]) == 2
@@ -72,7 +80,30 @@ So if you could do that you'd really be saving them a lot of work. Thanks.
 
 
 def counter_spy(people):
-    pass
+    
+    spies = []
+    for spy in people:
+        is_spy = False
+        for char in spy:
+            if char.lower() in ('s', 'p', 'y'):
+                is_spy = True
+                break
+        if not is_spy:
+            spies.append(spy)
+
+    return sorted(spies)
+
+
+
+
+                
+
+            
+
+
+
+
+    
 
 
 @run_test
@@ -120,7 +151,25 @@ This function should return the time written in the 12-hour clock format
 
 
 def convert_time_string(sample_string):
-    pass
+    # Split hours and minutes
+    hours, minutes = map(int, time_str.split(":"))
+    
+    # Determine AM or PM
+    if hours == 0:
+        formatted_hours = 12
+        period = "AM"
+    elif hours < 12:
+        formatted_hours = hours
+        period = "AM"
+    elif hours == 12:
+        formatted_hours = 12
+        period = "PM"
+    else:
+        formatted_hours = hours - 12
+        period = "PM"
+    
+    return f"{formatted_hours}:{minutes:02d} {period}"
+    
 
 
 @run_test
@@ -161,7 +210,12 @@ get_palindromes(["pineapple", "pony", "racecar"]) returns ["racecar"]
 
 
 def get_palindromes(word_list):
-    pass
+    palindromes = []
+    for word in word_list:
+        if word[::-1] == word:
+            palindromes.append(word)
+
+    return palindromes
 
 
 @run_test

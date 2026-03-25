@@ -23,7 +23,8 @@ def extract_repo_name(text):
     where "northcoders" is the name of the account and "de-intro-regex" is the
     name of the repo
     """
-    pass
+    match = re.search(r'/([^/]+)$', text)
+    return match.group(1)
 
 
 @run_test

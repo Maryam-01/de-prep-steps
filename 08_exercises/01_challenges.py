@@ -24,8 +24,13 @@ flip_booleans([]) # returns []
 """
 
 
+
+
 def flip_booleans(bools):
-    pass
+    result = []
+    for value in bools:
+        result.append(not value)
+    return result
 
 
 @run_test
@@ -103,7 +108,14 @@ translate_key(student, 'prénom', 'first_name') # should return the following:
 
 
 def translate_key(student, key_to_change, translation):
-    pass
+    new_dict = student.copy()
+    if key_to_change in student:
+        
+        value = new_dict.pop(key_to_change)
+        new_dict[translation] = value
+        return new_dict
+
+    
 
 
 @skip_test
@@ -163,8 +175,21 @@ find_first_dentist([{'name': 'Callum', 'is_dentist': True},
 """
 
 
+
+
 def find_first_dentist(people):
-    pass
+
+    for person in people:
+        if person['is_dentist']:
+            return person
+    else:
+        return None
+            
+
+            
+
+
+    
 
 
 @skip_test
@@ -260,7 +285,12 @@ tally_people_in_manchester([]) # returns 0
 
 
 def tally_people_in_manchester(people):
-    pass
+    result = 0
+    for person in people:
+        if person['lives']['city'] == 'Manchester':
+            result += 1
+    return result
+    
 
 
 @skip_test
@@ -355,7 +385,12 @@ get_pug_owners([]) # returns []
 
 
 def get_pug_owners(dogs):
-    pass
+    owners = []
+    for dog in dogs:
+        if dog['breed'] == 'Pug':
+            owners.append(dog['owner'])
+    return owners
+        
 
 
 @skip_test
@@ -444,8 +479,17 @@ with any keys that contain lists pluralised (an 's' added to the end.)
 """
 
 
+
 def pluralise_keys(dictionary):
-    pass
+    new_dict = {}
+    for key, value in dictionary.items():
+        if isinstance(value, list):
+            new_dict[key + "s"] = value
+        else:
+            new_dict[key] = value
+    return new_dict
+
+    
 
 
 @skip_test
@@ -557,10 +601,16 @@ get_word_lengths('this is a sentence') # returns [4, 2, 1, 8]
 get_word_lengths('') # returns []
 
 """
-
-
 def get_word_lengths(string):
-    pass
+
+    lengths = []
+
+    words = string.split()
+
+    for word in words:
+        lengths.append(len(word))
+
+    return lengths
 
 
 @skip_test
@@ -609,7 +659,13 @@ get_palindromes([]) # returns []
 
 
 def get_palindromes(words):
-    pass
+    palindromes = []
+    for word in words:
+        if word[::-1] == word:
+            palindromes.append(word)
+
+    return palindromes
+    
 
 
 @skip_test
@@ -667,7 +723,14 @@ replace_letters_with_x('Do you like coding?') # returns 'XX XXX XXXX XXXXXX?'
 
 
 def replace_letters_with_x(string):
-    pass
+    result = ""
+    for character in string:
+        if character.isalpha():
+            result += 'X'
+        else:
+            result += character
+    return result
+
 
 
 @skip_test

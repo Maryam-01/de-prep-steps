@@ -17,8 +17,13 @@ check_word_ends_with_ing('dancing') returns True
 """
 
 
-def check_word_ends_with_ing():
-    pass
+def check_word_ends_with_ing(string):
+    if string.endswith("ing"):
+        return True
+    else:
+        return False
+
+    
 
 
 @run_test
@@ -47,11 +52,12 @@ get_remainder(10, 3) returns 1
 """
 
 
-def get_remainder():
-    pass
+def get_remainder(a, b):
+   remainder = a % b
+   return remainder
 
 
-@skip_test
+@run_test
 def test_get_remainder():
     assert get_remainder(10, 2) == 0, format_err_msg(0, get_remainder(10, 2))
     assert get_remainder(119, 10) == 9, format_err_msg(
@@ -73,10 +79,13 @@ access_object({"name": "nara", "age": 5}, "email") returns "property not found"
 
 
 def access_object(obj, key):
-    pass
+    for keys in obj:
+        if keys == key:
+            return obj[key]
+    return "property not found"
 
 
-@skip_test
+@run_test
 def test_access_object():
     assert (
         access_object({"name": "nara", "age": 5}, "name") == "nara"
@@ -106,10 +115,14 @@ get_positive_numbers([-1, 2, -3]) returns [2]
 
 
 def get_positive_numbers(num_list):
-    pass
+    positive_nums = []
+    for num in num_list:
+        if num > 0:
+            positive_nums.append(num)
+    return positive_nums
 
 
-@skip_test
+@run_test
 def test_get_positive_numbers():
     assert get_positive_numbers([1, -1, 2, -2, 3, -3]) == [
         1,
@@ -140,10 +153,20 @@ collect_the_vowels("hello") returns "eo"
 
 
 def collect_the_vowels(sample_string):
-    pass
+    vowels = ('a', 'e', 'i', 'o', 'u')
+    vowel = ""
+    for letter in sample_string:
+        if letter in vowels:
+            vowel += letter
+
+    return vowel
 
 
-@skip_test
+
+    
+
+
+@run_test
 def test_collect_the_vowels():
     assert collect_the_vowels("a") == "a", format_err_msg(
         "a", collect_the_vowels("a")
@@ -172,7 +195,14 @@ access_item(["a", "b", "c", "d"], 5) == "b"
 
 
 def access_item(sample_list, index):
-    pass
+
+    return sample_list[index % len(sample_list)]
+
+
+
+
+
+    
 
 
 @skip_test

@@ -14,6 +14,12 @@ from test_api.checks import run_test, skip_test, format_err_msg
 # It should return True if the dictionary contains the provided key,
 #  False otherwise
 
+def check_if_key_exists(key, dictionary):
+    if key in dictionary:
+        return True
+    else:
+        return False
+
 
 @run_test
 def test_check_if_key_exists():
@@ -32,6 +38,31 @@ def test_check_if_key_exists():
 # Write a function, create_dict, that takes a list consisting of two elements
 #  representing a key / value pair as its argument
 # It should return a dictionary with a single key based on the input
+
+def create_dict(pair):
+    my_dict = {}
+    output1 = pair[0]
+    output2 = pair[1]
+    my_dict[output1] = output2
+    return my_dict
+    
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
 
 
 @skip_test
@@ -82,6 +113,19 @@ def test_get_first_n_items():
 # You don't need to utilise an dictionary here, but think about how you
 #  could do so
 
+def create_arrow(direction):
+    if direction == "left":
+        return "←"
+    elif direction == "right":
+        return "→"
+    elif direction == "up":
+        return "↑"
+    else:
+        return "↓"
+
+
+
+
 
 @skip_test
 def test_create_arrow():
@@ -96,6 +140,14 @@ def test_create_arrow():
 #  index value
 # It should return a new list where the item that was previously at the
 #  given index is now at the end of the list
+
+def move_item_to_end(my_list, index_value):
+    new_list = my_list.copy()
+    item =  new_list.pop(index_value)
+    new_list.append(item)
+    return new_list
+
+
 
 
 @skip_test
@@ -134,6 +186,10 @@ def test_move_item_to_end():
 # }
 # The user's age should be increased by 1 to reflect their recent birthday
 # NOTE: This function does NOT need to return anything!
+
+def update_user_age(user_account):
+    user_account["personal_details"]["age"] =+ 1
+    
 
 
 @skip_test
@@ -207,6 +263,13 @@ def test_update_user_age():
 # It should return True if it is an infinitive verb, and False otherwise
 # A French infinitive verb is a word that ends with either "re", "ir" or "er"
 
+def check_infinitive(french_word):
+    infinitives = ("re", "ir", "er")
+    if french_word.endswith(infinitives):
+        return True
+    else:
+        return False
+
 
 @skip_test
 def test_check_infinitive():
@@ -252,6 +315,13 @@ def test_check_infinitive():
 # It should return a list containing all strings ending with an 's' from the
 #  input (retaining the order)
 
+def collect_plurals(items):
+    results = []
+    for item in items:
+        if item.endswith("s"):
+            results.append(item)
+    return results
+
 
 @skip_test
 def test_collect_plurals():
@@ -279,6 +349,17 @@ def test_collect_plurals():
 # The 'admin' key will have a boolean value
 # You should return a list of user objects each with the 'admin' key set
 #  to True
+
+def make_all_admins(users):
+    for user in users:
+        user.update({"admin": True})
+    return users
+
+
+
+
+
+
 
 
 @skip_test

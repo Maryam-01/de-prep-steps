@@ -19,8 +19,11 @@ get_even_nums([1, 2, 3]) # returns [2]
 
 
 def get_even_nums(nums):
-    # your code here
-    pass
+    results = []
+    for item in nums:
+        if item % 2 == 0:
+            results.append(item)
+    return results
 
 
 @run_test
@@ -63,8 +66,11 @@ get_items_longer_than(['a','bb','ccc'], 4) # returns [];
 
 
 def get_items_longer_than(strs, max_len):
-    # your code here
-    pass
+    words = []
+    for items in strs:
+        if len(items) > max_lens:
+            words.append(items)
+    return words
 
 
 # ❗ Remember to change @skip_test to @run_test!
@@ -115,8 +121,14 @@ get_sandwich_filling(['a', 'b', 'c', 'd']) # returns ['b', 'c']
 
 
 def get_sandwich_filling(sandwich):
-    # your code here
-    pass
+    del sandwich[0]
+    del sandwich[-1]
+    return get_sandwich_filling(sandwich)
+
+
+
+        
+    
 
 
 @skip_test
@@ -162,8 +174,10 @@ remove_item([3], 0) # returns []
 
 
 def remove_item(items, n):
-    # your code here
-    pass
+    return items[:n] + items[n+1]
+
+
+    
 
 
 @skip_test
@@ -216,8 +230,9 @@ merge_lists([1, 2], [3, 4]) # returns [1, 2, 3, 4]
 
 
 def merge_lists(list1, list2):
-    # your code here
-    pass
+    return list1 + list2
+
+    
 
 
 @skip_test
@@ -279,8 +294,13 @@ present in two lists
 
 
 def is_item_omnipresent(lists, item):
-    # your code here
-    pass
+    for inner_list in lists:
+        if item not in inner_list:
+            return False
+    return True
+
+
+
 
 
 @skip_test

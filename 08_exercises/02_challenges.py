@@ -32,7 +32,22 @@ is_valid_mobile_number('0712345678!') # returns False
 
 
 def is_valid_mobile_number(mobile_number):
-    pass
+
+    
+    if mobile_number.startswith('07') and len(mobile_number) == 11 and mobile_number[2:].isdigit():
+        return True
+    elif mobile_number.startswith('+447') and len(mobile_number) == 13 and mobile_number[4:].isdigit():
+        return True
+    elif mobile_number.startswith('00447') and len(mobile_number) == 14 and mobile_number[5:].isdigit():
+        return True
+    else:
+        return False
+    
+
+
+
+
+
 
 
 @run_test
@@ -156,7 +171,14 @@ sum_digits_from_string('northcoders') # returns 0
 
 
 def sum_digits_from_string(string):
-    pass
+    total = 0
+    for char in string:
+        if char.isdigit():
+            total += int(char)
+    return total
+
+
+    
 
 
 @skip_test
@@ -229,7 +251,12 @@ get_williams(['William David', 'Cole Williamson']) # returns []
 
 
 def get_williams(names):
-    pass
+    williams = []
+    for name in names:
+        if name == 'Williams':
+            williams.append(name)
+    return williams
+
 
 
 @skip_test
@@ -295,7 +322,14 @@ get_factorials([]) # returns []
 
 
 def get_factorials(numbers):
-    pass
+    factorials = 1
+    for i in range(1, i + 1):
+        factorial *= i
+        factorials.append(factorial)
+    return factorials
+
+
+       
 
 
 @skip_test
@@ -342,7 +376,27 @@ largest_number(43) # returns 43
 
 
 def largest_number(number):
-    pass
+
+    numbers = list(str(number))
+    numbers.sort(reverse = True)
+    int("".join(numbers))
+
+    return numbers
+
+
+
+
+
+
+
+
+    
+        
+
+
+
+
+    
 
 
 @skip_test
@@ -421,7 +475,17 @@ generate_matrix(3) # returns [
 
 
 def generate_matrix(number):
-    pass
+    matrix = []
+
+    for i in range(number):
+        row = [None] * number
+        matrix.append(row)
+
+    return matrix
+
+
+
+        
 
 
 @skip_test
@@ -481,7 +545,18 @@ one is the right way round with less than 3 pieces of fruit
 
 
 def find_wrong_way_fruit(orchard):
-    pass
+    if len(orchard) < 3:
+        return 0
+    for fruit in orchard:
+        if orchard[0] == orchard[1]
+
+
+
+
+
+        
+
+    
 
 
 @skip_test
@@ -543,7 +618,14 @@ dna_pairs('gat') # returns ['GC', 'AT', 'TA']
 
 
 def dna_pairs(dna_string):
-    pass
+    if dna == 'A':
+        dna_pair.append('AT')
+    elif dna == 'T':
+        dna_pair.append('TA')
+    elif dna == 'G':
+        dna_pair.append('GC')
+    elif dna == 'C':
+        dna_pair.append('CG')
 
 
 @skip_test
@@ -653,7 +735,23 @@ tally_hashtags_and_mentions(tweet) # returns {'hashtags': 2, 'mentions': 1}
 
 
 def tally_hashtags_and_mentions(tweet):
-    pass
+    my_dict = {
+        'mentions' : 0,
+        'hashtags': 0
+        }
+    for char in tweet:
+        if char == '@':
+            my_dict['mentions'] += 1
+        elif char == '#':
+            my_dict['hashtags'] += 1
+
+    return my_dict
+
+
+
+
+
+    
 
 
 @skip_test

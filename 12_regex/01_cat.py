@@ -14,7 +14,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 def cat():
     # Your pattern should **match** a string containing the characters cat
-    YOUR_REGEX_HERE = 'x'
+    YOUR_REGEX_HERE = r'cat'
     # replace 'x' with an appropriate regular expression pattern
     return re.compile(YOUR_REGEX_HERE)
 

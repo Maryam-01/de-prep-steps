@@ -23,7 +23,8 @@ def is_valid_sort_code(text):
 
     You should return True if the sort code is valid, and False otherwise
     """
-    pass
+    pattern = r'^\d{2}-\d{2}-\d{2}$'
+    return bool(re.match(pattern, text))
 
 
 @run_test

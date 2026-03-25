@@ -10,8 +10,10 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 # Challenge 0
 # This function should return the product of two passed numbers.
-def multiply():
-    pass
+def multiply(a, b):
+
+    multiplied =  a *  b
+    return multiplied
 
 
 @run_test
@@ -38,8 +40,10 @@ def test_round_down():
 # Challenge 2
 # This function should take two arguments, m and n, and return m raised to the
 # power of n.
-def raise_to_power():
-    pass
+def raise_to_power(m, n):
+    power = m  ** n
+    return power
+
 
 
 @skip_test
@@ -52,8 +56,12 @@ def test_raise_to_power():
 # Challenge 3
 # This function should take a number as an argument
 # and return True if it is a multiple of 6, False otherwise.
-def is_multiple_of_6():
-    pass
+def is_multiple_of_6(number):
+    if number % 6 == 0:
+        return True
+    else:
+        return False
+    
 
 
 @skip_test
@@ -71,8 +79,9 @@ def test_is_multiple_of_6():
 # the same string with the first letter capitalised.
 
 
-def capitalise_first_letter():
-    pass
+def capitalise_first_letter(word):
+    word = word.capitalize()
+    return word
 
 
 @skip_test

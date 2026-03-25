@@ -25,8 +25,12 @@ def add_decimals(fractions_to_add):
     Python provides a decimal module that doesn't use floats and can be used to perform decimal arithmetic accurately:
     https://docs.python.org/3/library/decimal.html#module-decimal
     """
-    
-    pass
+from decimal import Decimal
+
+def add_decimals(fractions_to_add):
+    total = sum(Decimal(x) for x in fractions_to_add)
+    return str(total)
+
 
 
 @run_test

@@ -23,8 +23,9 @@ def remove_mark_down_headings(markdown_heading):
     (There's one on this page that can do this https://docs.python.org/3/library/stdtypes.html#string-methods).
     
     """
+    return markdown_heading.lstrip("# ")
 
-    pass
+    
 
 
 @run_test

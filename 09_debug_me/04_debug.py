@@ -19,8 +19,9 @@ def shopping_trip(money, item):
     }
     if money <= items_and_prices[item]:
         return f"You can buy {item}!"
+    else:
 
-    return f"You can't afford {item}..."
+        return f"You can't afford {item}..."
 
 
 @run_test

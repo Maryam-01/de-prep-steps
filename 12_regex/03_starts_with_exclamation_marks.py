@@ -16,7 +16,7 @@ def starts_with_exclamation_marks():
     # Your pattern should match one or more exclamation marks at the
     #  **beginning of a string**
     # You should look up regex anchors for this exercise
-    YOUR_REGEX_HERE = 'x'
+    YOUR_REGEX_HERE = r'^!+'
     # replace 'x' with an appropriate regular expression pattern
     return re.compile(YOUR_REGEX_HERE)
 

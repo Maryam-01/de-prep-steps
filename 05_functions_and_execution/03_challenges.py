@@ -11,8 +11,11 @@ from test_api.checks import run_test, skip_test, format_err_msg
 # Challenge 0
 # This function should take a list as an argument and return True if the list
 #  is empty, False otherwise.
-def is_empty_list():
-    pass
+def is_empty_list(items):
+    if not items:
+        return True
+    else:
+        return False
 
 
 @run_test
@@ -40,8 +43,14 @@ def test_is_empty_list():
 
 # If the 'likes_to_code' key is false, the string should look like
 #   "My name is Mitch and I don't like to code."
-def create_profile_description():
-    pass
+def create_profile_description(students):
+ 
+    if students["likes_to_code"] == True:
+        return f"My name is {students['name']} and I like to code"
+    else:
+        return f"My name is {students['name']} and I don't like to code"
+
+    
 
 
 @skip_test
@@ -70,8 +79,17 @@ def test_create_profile_description():
 # You should return a corresponding message
 
 
-def read_traffic_light():
-    pass
+def read_traffic_light(color):
+
+    if color == "GREEN":
+        return "GO"
+    elif color == "AMBER":
+        return "GET READY"
+    else:
+        return "STOP"
+
+
+    
 
 
 @skip_test
@@ -101,8 +119,8 @@ def test_read_traffic_light():
 # Challenge 3
 # This function should take any number of arguments and return the number of
 #  arguments passed into the function
-def how_many_arguments():
-    pass
+def how_many_arguments(*args):
+    return len(args)
 
 
 @skip_test
@@ -134,8 +152,14 @@ def test_how_many_arguments():
 
 # You should 'add the provided coin to the machine by altering the associated
 #  key and returning the updated coin machine
-def update_coin_machine():
-    pass
+def update_coin_machine(coin_machine, coin):
+    coin_machine[coin] += 1
+    return coin_machine
+
+
+
+
+    
 
 
 @skip_test
@@ -203,8 +227,29 @@ def test_update_coin_machine():
 # If the direction is "right" it should move 1 unit right
 #   (+1 in the x direction)
 # If the direction is "left" it should move 1 unit left (-1 in the x direction)
-def update_position():
-    pass
+def update_position(coordinates, position):
+    x = coordinates[0]
+    y = coordinates[1]
+
+    if position == 'up':
+        y += 1
+    elif position == 'down':
+        y -= 1
+    elif position == 'left':
+        x -= 1
+    elif position == 'right':
+        x += 1
+
+    return [x, y]
+
+
+
+
+    
+
+
+
+    
 
 
 @skip_test
@@ -229,8 +274,11 @@ def test_update_position():
 # Challenge 6
 # This function should take any value as an argument, and return true if it is
 #  falsy, and false otherwise
-def is_falsy():
-    pass
+def is_falsy(value):
+    if not value:
+        return True
+    else:
+        return False
 
 
 @skip_test
@@ -254,8 +302,13 @@ def test_is_falsy():
 # The game is considered to be won if the dice roll is 3 or higher AND the
 #  coin toss is "H"
 # You should return True if the game has been won and False otherwise
-def check_game():
-    pass
+def check_game(dice_roll, coin_toss):
+    if dice_roll >= 3 and coin_toss == 'H':
+        return True
+    else:
+        return False
+        
+    
 
 
 @skip_test
@@ -276,8 +329,23 @@ def test_check_game():
 # This should take two arguments, a coin collection list and a
 #   string representing a coin, and return an updated version of the given
 #   list with the coin added at the appropriate position
-def add_coins():
-    pass
+def add_coins(coin_collection, coin):
+    if coin == "1p":
+        coin_collection[0].append(coin)
+    elif coin == '2p':
+        coin_collection[1].append(coin)
+    elif coin == '5p':
+        coin_collection[2].append(coin)
+    else:
+        coin_collection[3].append(coin)
+    return coin_collection
+    
+
+
+
+
+
+    
 
 
 @skip_test

@@ -23,7 +23,9 @@ def is_professional_email(text):
 
     You should return True if the email is professional, and False otherwise
     """
-    pass
+    YOUR_REGEX_HERE = r'^.*[^xX]$'
+    # replace 'x' with an appropriate regular expression pattern
+    return bool(re.match(YOUR_REGEX_HERE, text))
 
 
 @run_test

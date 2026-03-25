@@ -15,7 +15,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 def at_least_5_digits():
     # Your pattern should match a string or substring containing at least 5
     #  of the digits from 1 to 9 only
-    YOUR_REGEX_HERE = 'x'
+    YOUR_REGEX_HERE = r'[1-9]{5,}'
     # replace 'x' with an appropriate regular expression pattern
     return re.compile(YOUR_REGEX_HERE)
 

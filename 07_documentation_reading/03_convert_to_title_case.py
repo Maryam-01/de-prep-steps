@@ -20,7 +20,15 @@ def convert_to_title_case(sentence):
     Use their suggestions to complete your function.
     """
     
-    pass
+
+    import re
+    
+    return re.sub("[A-Za-z]+('[A-Za-z]+)?",
+        lambda mo: mo.group(0)[0:1].upper() +
+        mo.group(0)[1:].lower(),
+        sentence)
+    
+
 
 
 @run_test

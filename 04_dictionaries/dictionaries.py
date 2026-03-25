@@ -23,8 +23,9 @@ add_price_to_product({ 'type': 'Tofu slices' }, 2.20) # returns
 
 
 def add_price_to_product(product, price):
-    # Your code here
-    pass
+    product["price"] = price 
+    return product
+
 
 
 @run_test
@@ -97,8 +98,13 @@ ignored and the product returned unchanged!
 
 
 def add_attribute_to_product(product, key, value):
-    # Your code here
-    pass
+    if isinstance(key, (str, int, float, bool)):
+        product[key] = value
+        
+    return product
+
+    
+    
 
 
 # ❗ Remember to change @skip_test to @run_test!
@@ -211,8 +217,22 @@ returns
 
 
 def create_northcoder(name, year_of_birth):
-    # Your code here
-    pass
+    if year_of_birth > 2023:
+        age = "error"
+    else:
+        age = 2023 - year_of_birth
+    
+    language = "Python"
+    
+    result = {
+        "name": name,
+        "age": age,
+        "language": language 
+    } 
+
+    
+
+    return result
 
 
 @skip_test
@@ -266,8 +286,17 @@ Returns
 
 
 def delete_many_passwords(users):
-    # Your code here
-    pass
+    for user in users:
+        if "password" in user:
+            del user["password"]
+    return users
+
+
+def delete_many_passwords(users):
+    for user in users:
+        user.pop("password", None)
+    return users
+
 
 
 @skip_test
@@ -353,8 +382,11 @@ get_northcoders_names(northcoders) # returns ['Callum', 'Carrie']
 
 
 def get_northcoders_names(northcoders):
-    # Your code here
-    pass
+    names = []
+    for northcoder in northcoders:
+        if "name" in northcoder:
+            names.append(northcoder["name"])
+    return names
 
 
 @skip_test
@@ -420,8 +452,11 @@ get_user_pet_age(user) # returns 4
 
 
 def get_user_pet_age(user):
-    # Your code here
-    pass
+    if "pet" in user:
+        if "age" in user["pet"]:
+            return user["pet"]["age"]
+    return None
+
 
 
 @skip_test
