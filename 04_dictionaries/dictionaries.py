@@ -24,8 +24,10 @@ add_price_to_product({ 'type': 'Tofu slices' }, 2.20) # returns
 
 
 def add_price_to_product(product, price):
-    # Your code here
-    pass
+    if product and price is not None:
+        product["price"] = price
+
+    return product
 
 
 @run_test
